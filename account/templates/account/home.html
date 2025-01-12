@@ -1,0 +1,13 @@
+{% extends "account/base.html" %}
+{% block title %}
+Home
+{% endblock title %}
+{% block content %}
+{% if messages %}
+  {% for messsage in messages  %}
+    <h3>{{message}}</h3>
+  {% endfor %}
+{% endif %}
+<h1>Welcome to the Home Page</h1>
+<p>This is the homepage content.</p>
+{% endblock content %}

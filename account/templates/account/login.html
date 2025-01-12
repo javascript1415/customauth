@@ -1,0 +1,114 @@
+
+{% extends "account/base.html" %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-title {
+            text-align: center;
+            color: #1a73e8;
+            margin-bottom: 1.5rem;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1a73e8;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .login-btn:hover {
+            background-color: #1557b0;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+ <div class="mes">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="{{m.tags}}">
+            <h1>{{ message }}</h1>
+        </div>
+        {% endfor %}
+{% endif %}
+
+ </div>
+    <div class="login-container">
+        <h2 class="login-title">Login</h2>
+        <form method="POST" >
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <div class="links">
+                <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                <a href="{% url 'register' %}">Create Account</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+

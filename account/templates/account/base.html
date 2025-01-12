@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      background-color: #333;
+      padding: 10px 20px;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+    }
+    .navbar a:hover {
+      background-color: #575757;
+      border-radius: 4px;
+    }
+    .nav-left, .nav-right {
+      display: flex;
+      gap: 10px;
+    }
+    .content {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="{% url 'home' %}">Home</a>
+      {% if user.is_authenticated %}  
+{% if user.is_seller %}
+<a href="{% url 'seller_dashboard' %}">Dashboard</a>
+{% elif user.is_customer%}
+<a href="{% url 'customer_dashboard' %}">Dashboard</a>
+{% endif %}
+{% endif %}
+
+</div>
+    <div class="nav-right">
+      {% if user.is_authenticated %}
+      <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+  <button type="submit">Logout</button>
+      </form>
+  {% else %}
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'register' %}">Register</a>
+  {% endif %}
+      </div>
+  </nav>
+  <div class="content">
+    <br>
+    {% block content %}
+    {% endblock content %}
+  </div>
+</body>
+</html>

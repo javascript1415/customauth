@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Your Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .email-header {
+            background-color: #2563eb;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .email-body {
+            padding: 20px;
+        }
+
+        .email-body h2 {
+            font-size: 20px;
+            margin-top: 0;
+            color: #333333;
+        }
+
+        .email-body p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+
+        .activate-btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .activate-btn:hover {
+            background-color: #1e3a8a;
+        }
+
+        .email-footer {
+            background-color: #f3f4f6;
+            color: #555555;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            border-top: 1px solid #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            Activate Your Account
+        </div>
+        <div class="email-body">
+            <h2>Hello,</h2>
+            <p>Thank you for signing up! Please click the button below to activate your account:</p>
+            <a href="{{activation_url}}" class="activate-btn">Activate Account</a>
+         
+        </div>
+        <div class="email-footer">
+            &copy; 2025 Your Company Name. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
