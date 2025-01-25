@@ -132,12 +132,7 @@ SITE_DOMAIN = "http://127.0.0.1:8000/"
 SITE_NAME = "Auth System"
 
 #for sedning email
-EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'live.smtp.mailtrap.io'
-EMAIL_HOST_USER = 'api'
-EMAIL_HOST_PASSWORD = '91aab69a76216da9106bdbd2906c372d'
-EMAIL_PORT = '587'
-EMAIL_USE_TLS =True
+# use mailtrap for this
 
 
 
